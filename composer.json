@@ -1,0 +1,15 @@
+{
+    "name": "test-lin/shop-dome",
+    "authors": [
+        {
+            "name": "jani",
+            "email": "505932384@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "application/"
+        }
+    }
+}
