@@ -5,14 +5,8 @@ namespace App\Controller;
 use App\Exception\Order as OrderException;
 
 
-/**
- * order
- */
 class Order
 {
-    /**
-     * summary
-     */
     public function index()
     {
         $order_id = $this->get('order_id');

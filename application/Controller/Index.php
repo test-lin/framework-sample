@@ -2,14 +2,8 @@
 
 namespace App\Controller;
 
-/**
- * a
- */
 class Index
 {
-    /**
-     * summary
-     */
     public function index()
     {
         echo 'hello world!!!';
@@ -18,5 +12,10 @@ class Index
     public function test()
     {
         echo '这里是测试';
+    }
+
+    private function setTime($time)
+    {
+        return strtotime($time);
     }
 }
