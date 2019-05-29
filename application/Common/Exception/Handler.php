@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Exception;
+namespace App\Common\Exception;
 
 /**
  * 异常句柄（入口）类

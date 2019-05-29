@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exception;
+namespace App\Common\Exception;
 
 use Exception as BaseException;
 

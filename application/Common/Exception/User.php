@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exception;
+namespace App\Common\Exception;
 
 class User extends Exception
 {

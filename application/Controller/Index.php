@@ -2,20 +2,15 @@
 
 namespace App\Controller;
 
-class Index
+class Index extends Base
 {
     public function index()
     {
-        echo 'hello world!!!';
+        echo 'hello world!';
     }
 
     public function test()
     {
-        echo '这里是测试';
-    }
-
-    private function setTime($time)
-    {
-        return strtotime($time);
+        echo 'testing';
     }
 }
