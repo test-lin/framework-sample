@@ -1,5 +1,11 @@
 {
-    "name": "test-lin/shop-dome",
+    "name": "test-lin/project-dome",
+    "type": "project",
+    "description": "The Project Demo.",
+    "keywords": [
+        "framework",
+        "demo"
+    ],
     "authors": [
         {
             "name": "jani",
@@ -19,5 +25,6 @@
         "psr-4": {
             "Tests\\": "tests/"
         }
-    }
+    },
+    "license": "MIT"
 }
