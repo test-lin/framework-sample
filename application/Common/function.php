@@ -45,3 +45,37 @@ if (! function_exists('list_to_tree')) {
         return $tree;
     }
 }
+
+if (! function_exists('export_csv')) {
+    function export_csv($data, $titles, $fileName = '') {
+        $csvData = '';
+
+        $nums = count($titles);
+
+        for ($i = 0; $i < $nums - 1; ++$i) {
+            $csvData .= $titles[$i] . ',';
+        }
+        if ($nums > 0) {
+            $csvData .= $titles[$nums - 1] . "\r\n";
+        }
+
+        foreach ($data as $k => $row) {
+            $csvDataTmp = '';
+            foreach ($row as $key => $r) {
+                $row[$key] = str_replace("\"", "\"\"", $r);
+
+                $csvDataTmp .= ',' . trim($row[$key]);
+            }
+            $csvData .= substr($csvDataTmp, 1) . "\r\n";
+            unset($data[$k]);
+        }
+
+        $fileName = empty($fileName) ? date('Y-m-d-H-i-s', time()) : $fileName;
+
+        header("Content-Type: application/force-download");
+        header("Content-type:text/csv;charset=utf-8");
+        header("Content-Disposition:filename={$fileName}.csv");
+
+        echo iconv('utf-8', 'gb2312', $csvData);
+    }
+}

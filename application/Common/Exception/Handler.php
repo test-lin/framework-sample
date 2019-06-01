@@ -18,19 +18,7 @@ class Handler
     {
         try {
             throw $ex;
-        } catch (Order $e) {
-            echo "订单异常";
-            var_dump(get_class($e));
-            echo '<pre>';
-            print_r($e);
-            // $return = array('status' => 1, 'message' => '系统繁忙，请稍后再试');
-            // exit(json_encode($return));
-
-        } catch (Goods $e) {
-            echo "商品异常";
-        } catch (User $e) {
-            echo "用户异常";
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo "其他异常";
         }
     }
