@@ -8,6 +8,7 @@
 use App\Common\Exception\Exception;
 use App\Common\Config;
 use think\Db;
+use think\Cache;
 
 class bootstrap
 {
@@ -20,6 +21,8 @@ class bootstrap
         $this->exceptionHandler();
 
         $this->db();
+
+        $this->cache();
     }
 
     private function config()
@@ -46,10 +49,16 @@ class bootstrap
         Db::setConfig(Config::get('db'));
     }
 
+    private function cache()
+    {
+        Cache::init(Config::get('cache'));
+    }
+
     public function run()
     {
         $act = (isset($_GET['act']) && $_GET['act']) ? $_GET['act'] : 'Index';
-        $op = (isset($_GET['op']) && $_GET['op']) ? $_GET['op'] : 'index';
+        $act = $_GET['act'] = ucwords(strtolower($act));
+        $op = $_GET['op'] = (isset($_GET['op']) && $_GET['op']) ? $_GET['op'] : 'index';
 
         $class_name = "App\\Controller\\{$act}";
         if (class_exists($class_name) === false) {
